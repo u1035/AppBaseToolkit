@@ -1,0 +1,29 @@
+﻿<appBase:MainWindowBase x:TypeArguments="testApplication:MainWindowViewModel" 
+                        x:Class="TestApplication.MainWindow"
+                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                        xmlns:appBase="clr-namespace:AppBaseToolkit.AppBase;assembly=AppBaseToolkit"
+                        xmlns:testApplication="clr-namespace:TestApplication"
+                        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+                        mc:Ignorable="d" d:DataContext="{d:DesignInstance testApplication:MainWindowViewModel}"
+                        Title="{Binding WindowHeader}">
+    <Window.Style>
+        <Style TargetType="Window" BasedOn="{StaticResource {x:Type Window}}"/>
+    </Window.Style>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <CheckBox Grid.Row="0" Margin="{adonisUi:Space 1}" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}"
+                  IsChecked="{Binding Config.IsDarkThemeSelected}" Content="Dark theme"/>
+
+        <HeaderedContentControl Grid.Row="1" Header="Some test string value:" Margin="{adonisUi:Space 1}">
+            <TextBox Text="{Binding Config.SomeTestStringValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </HeaderedContentControl>
+    </Grid>
+</appBase:MainWindowBase>

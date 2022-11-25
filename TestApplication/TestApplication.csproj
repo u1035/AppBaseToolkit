@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Millennium>$([System.DateTime]::Parse(`2000,1,1`))</Millennium>
+		<VersionBuildPart>$([System.DateTime]::UtcNow.Subtract($(Millennium)).Days)</VersionBuildPart>
+		<VersionRevisionPart>$([System.Convert]::ToUInt16($([MSBuild]::Divide($([System.DateTime]::UtcNow.TimeOfDay.TotalSeconds),2))))</VersionRevisionPart>
+		<AssemblyVersion Condition=" '$(VersionBuildPart)' == '' OR '$(VersionRevisionPart)' == ''">1.0.0.0</AssemblyVersion>
+		<AssemblyVersion Condition=" '$(VersionBuildPart)' != '' AND '$(VersionRevisionPart)' != ''">1.0.$(VersionBuildPart).$(VersionRevisionPart)</AssemblyVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AppBaseToolkit\AppBaseToolkit.csproj" />
+	</ItemGroup>
+
+</Project>
