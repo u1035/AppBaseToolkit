@@ -17,6 +17,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\AppBaseToolkit.Controls\AppBaseToolkit.Controls.csproj" />
 		<ProjectReference Include="..\AppBaseToolkit\AppBaseToolkit.csproj" />
 	</ItemGroup>
 

@@ -7,6 +7,7 @@
                         xmlns:appBase="clr-namespace:AppBaseToolkit.AppBase;assembly=AppBaseToolkit"
                         xmlns:testApplication="clr-namespace:TestApplication"
                         xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+                        xmlns:controls="clr-namespace:AppBaseToolkit.Controls;assembly=AppBaseToolkit.Controls"
                         mc:Ignorable="d" d:DataContext="{d:DesignInstance testApplication:MainWindowViewModel}"
                         Title="{Binding WindowHeader}">
     <Window.Style>
@@ -16,7 +17,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <CheckBox Grid.Row="0" Margin="{adonisUi:Space 1}" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}"
@@ -24,6 +26,11 @@
 
         <HeaderedContentControl Grid.Row="1" Header="Some test string value:" Margin="{adonisUi:Space 1}">
             <TextBox Text="{Binding Config.SomeTestStringValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </HeaderedContentControl>
+        
+        <HeaderedContentControl Grid.Row="2" Header="Watermark text box:" Margin="{adonisUi:Space 1}">
+            <controls:WatermarkTextBox WatermarkText="Type some text here"
+                                       Text="{Binding Config.SomeTestStringValue2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </HeaderedContentControl>
     </Grid>
 </appBase:MainWindowBase>

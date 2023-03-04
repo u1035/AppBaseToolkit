@@ -20,5 +20,21 @@ public class TestAppConfig : ApplicationConfigBase
     private string? _someTestStringValue;
 
     #endregion
+    
+    #region SomeTestStringValue2 property
+
+    /// <summary>
+    /// SomeTestStringValue2 property
+    /// </summary>
+    [Store]
+    public string? SomeTestStringValue2
+    {
+        get => _someTestStringValue2;
+        set => SetProperty(ref _someTestStringValue2, value);
+    }
+
+    private string? _someTestStringValue2;
+
+    #endregion
 
 }
