@@ -40,7 +40,7 @@ namespace AppBaseToolkit.Controls
             public Visibility WatermarkVisibility
             {
                 get => _watermarkVisibility;
-                set => SetProperty(ref _watermarkVisibility, value);
+                private set => SetProperty(ref _watermarkVisibility, value);
             }
 
             private Visibility _watermarkVisibility = Visibility.Collapsed;

@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Media;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.Helpers
 {
     /// <summary>
     /// Cache for re-using brushes
     /// </summary>
+    [PublicAPI]
     public static class BrushesCache
     {
         private static readonly object Lock = new();

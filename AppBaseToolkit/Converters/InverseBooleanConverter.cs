@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows.Data;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.Converters
 {
+    [PublicAPI]
     public class InverseBooleanConverter : IValueConverter
     {
         #region IValueConverter Members

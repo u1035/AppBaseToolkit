@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.Helpers
 {
@@ -7,6 +8,7 @@ namespace AppBaseToolkit.Helpers
     /// Shows wait cursor, can be used like "using (new WaitCursor()) { }"
     /// https://stackoverflow.com/a/3481274
     /// </summary>
+    [PublicAPI]
     public sealed class WaitCursor : IDisposable
     {
         private readonly Cursor _previousCursor;

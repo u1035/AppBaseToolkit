@@ -2,12 +2,14 @@
 using AppBaseToolkit.Attributes;
 using AppBaseToolkit.ConfigurationStoring;
 using AppBaseToolkit.Mvvm;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.AppBase;
 
 /// <summary>
 /// Base class for application config
 /// </summary>
+[PublicAPI]
 public abstract class ApplicationConfigBase : NotificationObject
 {
     private bool _loaded;
@@ -40,6 +42,7 @@ public abstract class ApplicationConfigBase : NotificationObject
     /// <summary>
     /// Initializes a new instance of <see cref="ApplicationConfigBase"/>
     /// </summary>
+    [PublicAPI]
     protected ApplicationConfigBase()
     {
         MainWindowPosition.PropertyChanged += OnConfigUpdated; //saving window position when it's changed

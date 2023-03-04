@@ -3,12 +3,14 @@ using System.IO;
 using System.Windows;
 using AppBaseToolkit.ConfigurationStoring;
 using DiskLogger;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.AppBase;
 
 /// <summary>
 /// Manages application startup initialization
 /// </summary>
+[PublicAPI]
 public abstract class ApplicationBase<TAppConfig, TAppServices> : Application 
     where TAppConfig : ApplicationConfigBase
 {

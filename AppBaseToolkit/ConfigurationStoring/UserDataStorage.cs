@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using AppBaseToolkit.AppBase;
 using AppBaseToolkit.Attributes;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -13,6 +14,7 @@ namespace AppBaseToolkit.ConfigurationStoring
     /// <summary>
     /// Class provides methods for storing and loading fields marked with [Store] attribute to/from XML configuration file
     /// </summary>
+    [PublicAPI]
     public static class UserDataStorage
     {
         /// <summary>

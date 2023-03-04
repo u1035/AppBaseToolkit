@@ -1,11 +1,13 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.Helpers
 {
     /// <summary>
     /// Helper for binding value of <see cref="PasswordBox"/>
     /// </summary>
+    [PublicAPI]
     public static class PasswordBoxAssistant
     {
         public static readonly DependencyProperty BoundPassword =

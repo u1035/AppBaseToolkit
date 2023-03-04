@@ -1,12 +1,14 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.AppBase;
 
 /// <summary>
 /// Application workspace
 /// </summary>
+[PublicAPI]
 public static class Workspace
 {
 #nullable disable //Initialize() must be called on application start

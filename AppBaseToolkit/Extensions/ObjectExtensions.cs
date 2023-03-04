@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 
 namespace AppBaseToolkit.Extensions;
 
+[PublicAPI]
 public static class ObjectExtensions
 {
     /// <summary>

@@ -1,10 +1,12 @@
 ﻿using System;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.Exceptions;
 
 /// <summary>
 /// Exception to handle default value of <see langword="switch"/> statement
 /// </summary>
+[PublicAPI]
 public class UnexpectedEnumValueException : NotSupportedException
 {
     /// <summary>

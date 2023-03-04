@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.Converters
 {
+    [PublicAPI]
     public class NotNullToBooleanConverter : IValueConverter
     {
         public object Convert(object? value, Type targetType, object parameter, CultureInfo culture)

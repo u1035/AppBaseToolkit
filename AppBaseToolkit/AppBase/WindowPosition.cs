@@ -1,12 +1,14 @@
 ﻿using System.Windows;
 using AppBaseToolkit.Attributes;
 using AppBaseToolkit.Mvvm;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.AppBase;
 
 /// <summary>
 /// Contains information about window position and state
 /// </summary>
+[PublicAPI]
 public class WindowPosition : NotificationObject
 {
     #region WindowWidth property
