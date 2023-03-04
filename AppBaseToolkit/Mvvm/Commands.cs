@@ -2,12 +2,14 @@
 using System.Windows.Input;
 using System.Windows.Threading;
 using System;
+using JetBrains.Annotations;
 
 namespace AppBaseToolkit.Mvvm;
 
 /// <summary>
 /// Provides methods for easy working with command buttons
 /// </summary>
+[PublicAPI]
 public class Command : CommandBase
 {
     private readonly Action _executeMethod;
@@ -58,25 +60,26 @@ public class Command : CommandBase
     }
 }
 
+[PublicAPI]
 public class Command<T> : CommandBase
 {
-    private readonly Action<T> _executeMethod;
-    private readonly Func<T, bool>? _canExecuteMethod;
+    private readonly Action<T?> _executeMethod;
+    private readonly Func<T?, bool>? _canExecuteMethod;
     private readonly Func<bool>? _canExecuteMethod2;
 
-    public Command(Action<T> executeMethod, Func<T, bool>? canExecuteMethod = null)
+    public Command(Action<T?> executeMethod, Func<T?, bool>? canExecuteMethod = null)
     {
         _executeMethod = executeMethod;
         _canExecuteMethod = canExecuteMethod;
     }
 
-    public Command(Action<T> executeMethod, Func<bool>? canExecuteMethod)
+    public Command(Action<T?> executeMethod, Func<bool>? canExecuteMethod)
     {
         _executeMethod = executeMethod;
         _canExecuteMethod2 = canExecuteMethod;
     }
 
-    public bool CanExecute(T parameter)
+    public bool CanExecute(T? parameter)
     {
         return _canExecuteMethod == null || _canExecuteMethod(parameter);
     }
@@ -99,7 +102,7 @@ public class Command<T> : CommandBase
         return false;
     }
 
-    public void Execute(T parameter)
+    public void Execute(T? parameter)
     {
         if (!CanExecute(parameter))
             return;
@@ -109,11 +112,11 @@ public class Command<T> : CommandBase
 
     public sealed override void Execute(object? parameter)
     {
-        Execute((T)parameter);
+        Execute((T?)parameter);
     }
 }
 
-
+[PublicAPI]
 public abstract class CommandBase : NotificationObject, ICommand
 {
     /// <summary>
@@ -153,7 +156,7 @@ public abstract class CommandBase : NotificationObject, ICommand
     public event EventHandler? CanExecuteChanged;
 }
 
-
+[PublicAPI]
 public class AsyncCommand : CommandBase
 {
     private readonly Func<Task> _executeMethod;
